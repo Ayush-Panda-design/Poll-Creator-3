@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-surface text-gray-100 font-sans antialiased;
+    background: #0f0f1a;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #1a1a2e; }
+  ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 3px; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+  .glass-hover {
+    @apply glass hover:bg-white/10 transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-2.5 rounded-xl
+           transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+           shadow-lg shadow-brand-600/30;
+  }
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-2.5 rounded-xl
+           border border-white/20 transition-all duration-200 active:scale-95;
+  }
+  .btn-danger {
+    @apply bg-red-600/80 hover:bg-red-600 text-white font-semibold px-6 py-2.5 rounded-xl
+           transition-all duration-200 active:scale-95;
+  }
+  .input-field {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white
+           placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50
+           focus:border-brand-500 transition-all duration-200;
+  }
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl p-6;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-active   { @apply badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30; }
+  .badge-expired  { @apply badge bg-red-500/20 text-red-400 border border-red-500/30; }
+  .badge-draft    { @apply badge bg-gray-500/20 text-gray-400 border border-gray-500/30; }
+  .badge-published{ @apply badge bg-brand-500/20 text-brand-400 border border-brand-500/30; }
+  .skeleton {
+    @apply animate-pulse bg-white/10 rounded-xl;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-purple-400;
+  }
+  .page-wrapper {
+    @apply min-h-screen bg-surface;
+  }
+}
