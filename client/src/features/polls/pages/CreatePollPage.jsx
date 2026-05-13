@@ -52,7 +52,7 @@ const CreatePollPage = () => {
 
     const payload = {
       ...form,
-      expiresAt: form.expiresAt || null,
+      expiresAt: form.expiresAt ? new Date(form.expiresAt).toISOString() : null,
       questions: form.questions.map((q) => ({ ...q, options: q.options.filter(Boolean) })),
     };
 
@@ -199,3 +199,4 @@ const CreatePollPage = () => {
 };
 
 export default CreatePollPage;
+
